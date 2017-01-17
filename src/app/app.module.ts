@@ -10,7 +10,9 @@ import {firebaseConfig} from "../environments/firebase.config";
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ProblemsListComponent} from './Problemes/Problems.component'
-import { ScoreComponent} from './Score/Score.component' ;
+import { ScoreComponent} from './Score/Score.component';
+import { RegisterComponent } from './register/register.component';
+import { DocumentationComponent } from './documentation/documentation.component' ;
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ScoreComponent} from './Score/Score.component' ;
     LoginComponent,
     HomeComponent,
     ProblemsListComponent,
-    ScoreComponent
+    ScoreComponent,
+    RegisterComponent,
+    DocumentationComponent
   ],
   imports: [
     BrowserModule,
