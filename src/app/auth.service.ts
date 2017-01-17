@@ -2,17 +2,16 @@ import { Injectable } from '@angular/core';
 import {Router} from "@angular/router";
 import {initializeApp,database} from 'firebase';
 import {AngularFire, FirebaseListObservable} from "angularfire2";
+import { Observable} from 'rxjs/Observable' ;
+import {Http, Response ,Headers,RequestOptions} from '@angular/http' ;
+ import { Problem } from './models/Problem.model';
+import { Team} from './models/Team.model' ; 
 
-export class User {
-  constructor(
-    public email: string,
-    public password: string) { }
-}
 
-let users = [
-  new User('test','test'),
-  new User('admin','admin')
-];
+import 'rxjs/add/operator/map' ;
+import 'rxjs/add/operator/catch';
+
+
 
 @Injectable()
 export class AuthService {
@@ -23,14 +22,60 @@ export class AuthService {
   ){
   }
 
-  login(user){
-   let authenticatedUser = users.find(u => u.email === user.email);
-    if (authenticatedUser && authenticatedUser.password === user.password){
-      localStorage.setItem("user", authenticatedUser.toString());
-      this._router.navigate(['home']);
-      return true;
-    }
-    return false;
 
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+//*************************SIGN IN********************//
+
+logIn(Teamname : string, password: string){
+
+}
+
+
+
+//*****************LOG OUT**********************************//
+
+
+logout(){
+    //only remove user from localStorage
+    localStorage.removeItem('currentTeam');
+}
+
+
+
+
+
+//***************** LOGGED IN ***********//
+
+isloggedIn()
+{
+     if (localStorage.getItem('currentTeam')) {
+            // logged in so return true
+            return true;
+}else{
+    return false ;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
 }
