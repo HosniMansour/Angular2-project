@@ -1,7 +1,7 @@
 export class
  Team {
   id : number;
- login : string;
+  login : string;
  password : string;
  Membres : [{
      Nom :'',
@@ -9,5 +9,5 @@ export class
      email :'',
      niveau :''
  }]
- 
+
 }

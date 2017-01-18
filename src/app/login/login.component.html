@@ -1,41 +1,31 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
 <div class="container">
   <div class="row">
     <div class="col-md-4"></div>
-    <div class="col-md-4">
-<!--[formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)"-->
-<form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+    <div class="col-md-4" style="margin-top: 160px;">
 
-      <div class="form-group" [ngClass]="{'has-error':!loginForm.controls['TeamName'].valid && submitted}">
-        <label for="email">Team Name</label>
-        <input  id="email" type="text" class="validate" [formControl]="loginForm.controls['TeamName']" />
+      <div role="alert" *ngIf="!loginForm.controls['password'].valid && submitted || !loginForm.controls['email'].valid && submitted ">
+        <div class="alert alert-dismissible alert-danger">
+          <h4 class="">Error!</h4>
+          <p>Please check your email/password.</p>
+        </div>
       </div>
 
-      <div class="form-group" [ngClass]="{'has-error':!loginForm.controls['password'].valid && submitted}">
-        <label for="password">Password</label>
-         <input id="password" type="password" class="validate" [formControl]="loginForm.controls['password']" />
-       </div>
+      <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
 
-   
-     
-       <button  class="btn waves-effect waves-light" type="submit" name="action">Login</button>
-</form>
+            <div class="form-group" [ngClass]="{'has-error':!loginForm.controls['email'].valid && submitted}">
+              <label for="email">Email</label>
+              <input  id="email" type="email" class="form-control validate" placeholder="Email..." [formControl]="loginForm.controls['email']" />
+            </div>
 
+            <div class="form-group" [ngClass]="{'has-error':!loginForm.controls['password'].valid && submitted}">
+              <label for="password">Password</label>
+               <input id="password" type="password" class="form-control validate" placeholder="Password..." [formControl]="loginForm.controls['password']" />
+             </div>
 
-<div class="alert alert-danger" role="alert" *ngIf="!loginForm.controls['password'].valid && submitted
-|| !loginForm.controls['TeamName'].valid && submitted ">
-  <span>Please Enter All fields </span>
-</div>
+             <button  class="btn btn-primary pull-right" type="submit" name="action">Login</button>
+      </form>
 
      </div>
-
-
      <div class="col-md-4"></div>
-   </div>
- </div>
+  </div>
+</div>
